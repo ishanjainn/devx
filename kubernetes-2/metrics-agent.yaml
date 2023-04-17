@@ -18,7 +18,7 @@ spec:
         fullnameOverride: metrics-agent
         agent:
           mode: 'static'
-          configmap
+          configmap:
             create: false
             name: grafana-agent
             key: config
