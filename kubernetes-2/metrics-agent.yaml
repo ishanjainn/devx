@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: metrics-agent
+  name: metrics-agents
   namespace: default
 spec:
   destination:
