@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kube-state-metrics
+  name: ksm-kube-state-metrics
   namespace: default
 spec:
   destination:
