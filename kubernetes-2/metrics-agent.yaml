@@ -18,7 +18,7 @@ spec:
         fullnameOverride: metrics-agent
         agent:
           mode: 'static'
-          content: | 
+          content: |
             metrics:
               wal_directory: /var/lib/agent/wal
               global:
