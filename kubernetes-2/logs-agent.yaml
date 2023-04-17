@@ -19,8 +19,8 @@ spec:
         agent:
           mode: 'static'
           configmap:
-            content: 
-              'metrics:
+            content: |-
+              metrics:
                 wal_directory: /tmp/grafana-agent-wal
                 global:
                   scrape_interval: 60s
@@ -88,7 +88,7 @@ spec:
                         source_labels:
                           - __meta_kubernetes_pod_uid
                           - __meta_kubernetes_pod_container_name
-                        target_label: __path__'
+                        target_label: __path__
   sources: []
   project: default
   syncPolicy:
