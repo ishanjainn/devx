@@ -19,7 +19,7 @@ spec:
         agent:
           mode: 'static'
           configmap
-            content: |
+            content: 
               metrics:
                 wal_directory: /var/lib/agent/wal
                 global:
