@@ -11,7 +11,7 @@ spec:
   source:
     path: ''
     repoURL: 'https://grafana.github.io/helm-charts'
-    targetRevision: 0.10.01
+    targetRevision: 0.10.0
     chart: grafana-agent
     helm:
       values: |
