@@ -18,8 +18,8 @@ spec:
         fullnameOverride: metrics-agent
         agent:
           mode: 'static'
-          content: |
-            metrics:
+          content: 
+            'metrics:
               wal_directory: /var/lib/agent/wal
               global:
                 scrape_interval: 60s
@@ -133,7 +133,7 @@ spec:
                 positions:
                   filename: /tmp/positions.yaml
                 target_config:
-                  sync_period: 10s
+                  sync_period: 10s'
   sources: []
   project: default
   syncPolicy:
