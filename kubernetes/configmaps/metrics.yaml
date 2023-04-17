@@ -119,5 +119,3 @@ data:
           filename: /tmp/positions.yaml
         target_config:
           sync_period: 10s
-    
-EOF
