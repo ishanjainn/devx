@@ -2,11 +2,11 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: nodeexporter
-  namespace: default
+  namespace: argocd
 spec:
   destination:
     name: ''
-    namespace: default
+    namespace: monitoring
     server: 'https://kubernetes.default.svc'
   source:
     path: ''
