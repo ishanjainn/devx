@@ -19,8 +19,6 @@ spec:
       parameters:
         - name: image.tag
           value: v2.8.2
-        - name: namespaceOverride
-          value: grafana
   sources: []
   project: default
   syncPolicy:

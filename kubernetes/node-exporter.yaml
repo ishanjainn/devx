@@ -13,12 +13,6 @@ spec:
     repoURL: 'https://prometheus-community.github.io/helm-charts'
     targetRevision: 4.16.0
     chart: prometheus-node-exporter
-    helm:
-      values: |+
-
-      parameters:
-        - name: namespaceOverride
-          value: grafana
   sources: []
   project: default
   syncPolicy:

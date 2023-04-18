@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: grafana-agent-logs
-  namespace: grafana
+  namespace: default
 data:
   agent.yaml: |    
     metrics:
@@ -14,25 +14,26 @@ data:
       configs:
       - name: integrations
         remote_write:
-        - url: https://prometheus-prod-26-prod-ap-south-0.grafana.net/api/prom/push
+        - url: https://prometheus-prod-13-prod-us-east-0.grafana.net/api/prom/push
           basic_auth:
-            username: 946483
-            password: eyJrIjoiNGY3NDFjN2YxMTkxMjRkOGJjODM2MDg3OTYyMGJlMGE3NGMxMjBlYyIsIm4iOiJzdGFjay02MjI4MTEtZWFzeXN0YXJ0LXByb20tcHVibGlzaGVyIiwiaWQiOjY1Mjk5Mn0=
+            username: 948301
+            password: eyJrIjoiZjlhMjY4MzgwNWJkZDhiMDRlMDQwMWJiMzNhODIyYTYxNWQzODBmNyIsIm4iOiJzdGFjay02MjM3MjAtZWFzeXN0YXJ0LXByb20tcHVibGlzaGVyIiwiaWQiOjY1Mjk5Mn0=
     integrations:
       prometheus_remote_write:
-      - url: https://prometheus-prod-26-prod-ap-south-0.grafana.net/api/prom/push
+      - url: https://prometheus-prod-13-prod-us-east-0.grafana.net/api/prom/push
         basic_auth:
-          username: 946483
-          password: eyJrIjoiNGY3NDFjN2YxMTkxMjRkOGJjODM2MDg3OTYyMGJlMGE3NGMxMjBlYyIsIm4iOiJzdGFjay02MjI4MTEtZWFzeXN0YXJ0LXByb20tcHVibGlzaGVyIiwiaWQiOjY1Mjk5Mn0=
-         
+          username: 948301
+          password: eyJrIjoiZjlhMjY4MzgwNWJkZDhiMDRlMDQwMWJiMzNhODIyYTYxNWQzODBmNyIsIm4iOiJzdGFjay02MjM3MjAtZWFzeXN0YXJ0LXByb20tcHVibGlzaGVyIiwiaWQiOjY1Mjk5Mn0=
+      
+      
     logs:
       configs:
       - name: integrations
         clients:
-        - url: https://logs-prod-014.grafana.net/loki/api/v1/push
+        - url: https://logs-prod-006.grafana.net/loki/api/v1/push
           basic_auth:
-            username: 472210
-            password: eyJrIjoiNGY3NDFjN2YxMTkxMjRkOGJjODM2MDg3OTYyMGJlMGE3NGMxMjBlYyIsIm4iOiJzdGFjay02MjI4MTEtZWFzeXN0YXJ0LXByb20tcHVibGlzaGVyIiwiaWQiOjY1Mjk5Mn0=
+            username: 473119
+            password: eyJrIjoiZjlhMjY4MzgwNWJkZDhiMDRlMDQwMWJiMzNhODIyYTYxNWQzODBmNyIsIm4iOiJzdGFjay02MjM3MjAtZWFzeXN0YXJ0LXByb20tcHVibGlzaGVyIiwiaWQiOjY1Mjk5Mn0=
           external_labels:
             cluster: cloud
         positions:
