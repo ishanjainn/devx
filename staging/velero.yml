@@ -13,6 +13,25 @@ spec:
     repoURL: 'https://vmware-tanzu.github.io/helm-charts'
     targetRevision: 4.0.2
     chart: velero
+    helm: 
+      values: |
+        initContainers:
+          - name: velero-plugin-for-aws
+            image: velero/velero-plugin-for-aws:v1.7.0
+            imagePullPolicy: IfNotPresent
+            volumeMounts:
+              - mountPath: /target
+                name: plugins
+        configuration:
+          provider: aws
+          backupStorageLocation:
+            name: "aws"
+            provider: "velero.io/aws"
+            bucket: velerointegration
+            default: true
+            config:
+              region: us-east-1
+
   sources: []
   project: default
   syncPolicy:
