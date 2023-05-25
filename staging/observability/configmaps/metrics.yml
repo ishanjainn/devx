@@ -175,7 +175,7 @@ data:
             ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
             insecure_skip_verify: false
             server_name: kubernetes
-        - job_name: integrations/traefik
+        - job_name: integrations/argocd-application-controller
           static_configs:
             - targets: ['argocd-application-controller-metrics:8082']
         - job_name: integrations/grafana-mimir/metrics
