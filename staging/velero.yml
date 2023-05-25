@@ -23,7 +23,6 @@ spec:
               - mountPath: /target
                 name: plugins
         configuration:
-          provider: aws
           backupStorageLocation:
             name: "aws"
             provider: "velero.io/aws"
