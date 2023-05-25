@@ -196,6 +196,18 @@ data:
         - job_name: integrations/velero
           static_configs:
             - targets: ['velero.default.svc.cluster.local:8085']
+        - job_name: integrations/harbor/core
+          static_configs:
+            - targets: ['harbor-core.default.svc.cluster.local:8001']
+        - job_name: integrations/harbor/registry
+          static_configs:
+            - targets: ['harbor-registry.default.svc.cluster.local:8001']
+        - job_name: integrations/harbor/jobservice
+          static_configs:
+            - targets: ['harbor-jobservice.default.svc.cluster.local:8001']
+        - job_name: integrations/harbor/exporter
+          static_configs:
+            - targets: ['harbor-exporter.default.svc.cluster.local:8001']
         - job_name: integrations/grafana-mimir/metrics
           kubernetes_sd_configs:
             - role: pod
