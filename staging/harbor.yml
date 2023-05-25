@@ -16,7 +16,7 @@ spec:
     targetRevision: 1.12.1
     chart: harbor
     helm: 
-      values: 
+      values: |
         expose: 
           type: clusterIP
         externalURL: http://harbor.default:80
