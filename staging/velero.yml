@@ -30,7 +30,17 @@ spec:
             default: true
             config:
               region: us-east-1
-
+          volumeSnapshotLocation:
+            name: aws
+            provider: velero.io/aws
+            config:
+              region: us-east-1
+          schedules: 
+            my-backup:
+              disabled: false
+              schedule: "0 0 * * *" 
+              template:
+                ttl: "240h"
   sources: []
   project: default
   syncPolicy:
