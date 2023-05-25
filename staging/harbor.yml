@@ -21,7 +21,7 @@ spec:
           type: clusterIP
           tls: 
             enabled: false
-        externalURL: http://harbor.default:80
+        externalURL: http://localhost:8080
         metrics:  
           enabled: true
   sources: []
