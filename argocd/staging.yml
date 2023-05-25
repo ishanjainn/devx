@@ -20,3 +20,8 @@ applicationSet:
 notifications:
   metrics:
     enabled: true
+global:
+    podAnnotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/path: "/metrics/cluster"
+    prometheus.io/port: "9000"
