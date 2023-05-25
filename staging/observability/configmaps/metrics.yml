@@ -186,13 +186,13 @@ data:
             - targets: ['argocd-notifications-controller-metrics.argocd.svc.cluster.local:9091']
         - job_name: integrations/argocd/repo-server
           static_configs:
-            - targets: ['argocd-repo-server-metrics.svc.cluster.local:8084']
+            - targets: ['argocd-repo-server-metrics.argocd.svc.cluster.local:8084']
         - job_name: integrations/argocd/argocd-server
           static_configs:
-            - targets: ['argocd-server-metrics.svc.cluster.local:8083']
+            - targets: ['argocd-server-metrics.argocd.svc.cluster.local:8083']
         - job_name: integrations/argocd/argocd-redis
           static_configs:
-            - targets: ['argocd-redis-metrics.svc.cluster.local:9121']
+            - targets: ['argocd-redis-metrics.argocd.svc.cluster.local:9121']
         - job_name: integrations/grafana-mimir/metrics
           kubernetes_sd_configs:
             - role: pod
