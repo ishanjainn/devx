@@ -193,6 +193,9 @@ data:
         - job_name: integrations/argocd/argocd-redis
           static_configs:
             - targets: ['argocd-redis-metrics.argocd.svc.cluster.local:9121']
+        - job_name: integrations/velero
+          static_configs:
+            - targets: ['velero.default.svc.cluster.local:8085']
         - job_name: integrations/grafana-mimir/metrics
           kubernetes_sd_configs:
             - role: pod
