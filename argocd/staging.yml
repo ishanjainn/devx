@@ -1,0 +1,22 @@
+## Application controller
+controller:
+  metrics:
+    enabled: true
+dex:
+  metrics:
+    enabled: true
+redis:
+  metrics:
+    enabled: true
+server:
+  metrics:
+    enabled: true
+repoServer:
+  metrics:
+    enabled: true
+applicationSet:
+  metrics:
+    enabled: true
+notifications:
+  metrics:
+    enabled: true
