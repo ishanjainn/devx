@@ -177,7 +177,7 @@ data:
             server_name: kubernetes
         - job_name: integrations/argocd-application-controller
           static_configs:
-            - targets: ['argocd-application-controller-metrics:8082']
+            - targets: ['localhost:8082']
         - job_name: integrations/grafana-mimir/metrics
           kubernetes_sd_configs:
             - role: pod
