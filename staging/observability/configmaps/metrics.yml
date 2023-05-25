@@ -175,9 +175,24 @@ data:
             ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
             insecure_skip_verify: false
             server_name: kubernetes
-        - job_name: integrations/argocd-application-controller
+        - job_name: integrations/argocd/application-controller
           static_configs:
             - targets: ['argocd-application-controller-metrics.argocd.svc.cluster.local:8082']
+        - job_name: integrations/argocd/applicationset
+          static_configs:
+            - targets: ['argocd-applicationset-controller-metrics.argocd.svc.cluster.local:8085']
+        - job_name: integrations/argocd/notifications-controller
+          static_configs:
+            - targets: ['argocd-notifications-controller-metrics.argocd.svc.cluster.local:9091']
+        - job_name: integrations/argocd/repo-server
+          static_configs:
+            - targets: ['argocd-repo-server-metrics.svc.cluster.local:8084']
+        - job_name: integrations/argocd/argocd-server
+          static_configs:
+            - targets: ['argocd-server-metrics.svc.cluster.local:8083']
+        - job_name: integrations/argocd/argocd-redis
+          static_configs:
+            - targets: ['argocd-redis-metrics.svc.cluster.local:9121']
         - job_name: integrations/grafana-mimir/metrics
           kubernetes_sd_configs:
             - role: pod
