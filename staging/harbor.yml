@@ -21,7 +21,7 @@ spec:
           type: loadBalancer
           tls: 
             enabled: false
-        externalURL: http://localhost:8080
+        externalURL: http://144.126.253.203
         metrics:  
           enabled: true
   sources: []
