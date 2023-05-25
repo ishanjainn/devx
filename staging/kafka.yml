@@ -2,6 +2,7 @@ apiVersion: kafka.strimzi.io/v1beta2
 kind: Kafka
 metadata:
   name: test-kafka
+  namespace: default
 spec:
   kafka:
     version: 3.4.0
@@ -70,6 +71,7 @@ kind: ConfigMap
 apiVersion: v1
 metadata:
   name: kafka-metrics
+  namespace: default
   labels:
     app: strimzi
 data:
