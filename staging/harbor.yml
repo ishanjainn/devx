@@ -18,7 +18,7 @@ spec:
     helm: 
       values: |
         expose: 
-          type: clusterIP
+          type: loadBalancer
           tls: 
             enabled: false
         externalURL: http://localhost:8080
