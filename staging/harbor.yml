@@ -21,7 +21,7 @@ spec:
           type: loadBalancer
           tls: 
             enabled: false
-        externalURL: http://144.126.253.203:80
+        externalURL: http://144.126.254.18:80
         metrics:  
           enabled: true
   sources: []
