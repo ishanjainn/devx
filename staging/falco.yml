@@ -28,6 +28,8 @@ spec:
           artifact:
             install:
               enabled: false
+            follow:
+              enabled: false
   sources: []
   project: default
   syncPolicy:
