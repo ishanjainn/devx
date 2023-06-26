@@ -22,18 +22,12 @@ spec:
             volumeMounts:
               - mountPath: /target
                 name: plugins
-        configuration:
-          volumeSnapshotLocation:
-            name: aws
-            provider: aws
-            config:
-              region: us-east-1
-          schedules: 
-            my-backup:
-              disabled: false
-              schedule: "0 0 * * *" 
-              template:
-                ttl: "240h"
+        credentials:
+          secretContents:
+          cloud: |
+            [default]
+            aws_access_key_id=AKIATQUZJ257GV3C2SUF
+            aws_secret_access_key=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
   sources: []
   project: default
   syncPolicy:
