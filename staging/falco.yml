@@ -17,8 +17,8 @@ spec:
     chart: falco
     helm: 
       values: |
-        grpc_output:
-          enabled: true
+        # grpc_output:
+        #   enabled: true
         metrics:
           enabled: true
         json_output: true
