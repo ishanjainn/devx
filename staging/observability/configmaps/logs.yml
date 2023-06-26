@@ -17,13 +17,13 @@ data:
         - url: https://prometheus-prod-26-prod-ap-south-0.grafana.net/api/prom/push
           basic_auth:
             username: 1006705
-            password: glc_eyJvIjoiNjUyOTkyIiwibiI6ImludGVncmF0aW9ucyIsImsiOiJ5NHc3cDRkOThCRVdnQzRDNVQ0VkgzMkYiLCJtIjp7InIiOiJwcm9kLWFwLXNvdXRoLTAifX0=
+            password: glc_eyJvIjoiNjUyOTkyIiwibiI6InRvb2xzIiwiayI6IkZZMWk5NHNZcTAxbE9wMkwybTZJTTc0QiIsIm0iOnsiciI6InByb2QtYXAtc291dGgtMCJ9fQ==
     integrations:
       prometheus_remote_write:
       - url: https://prometheus-prod-26-prod-ap-south-0.grafana.net/api/prom/push
         basic_auth:
           username: 1006705
-          password: glc_eyJvIjoiNjUyOTkyIiwibiI6ImludGVncmF0aW9ucyIsImsiOiJ5NHc3cDRkOThCRVdnQzRDNVQ0VkgzMkYiLCJtIjp7InIiOiJwcm9kLWFwLXNvdXRoLTAifX0=
+          password: glc_eyJvIjoiNjUyOTkyIiwibiI6InRvb2xzIiwiayI6IkZZMWk5NHNZcTAxbE9wMkwybTZJTTc0QiIsIm0iOnsiciI6InByb2QtYXAtc291dGgtMCJ9fQ==
     
     logs:
       configs:
@@ -32,7 +32,7 @@ data:
         - url: https://logs-prod-014.grafana.net/loki/api/v1/push
           basic_auth:
             username: 605958
-            password: glc_eyJvIjoiNjUyOTkyIiwibiI6ImludGVncmF0aW9ucyIsImsiOiJ5NHc3cDRkOThCRVdnQzRDNVQ0VkgzMkYiLCJtIjp7InIiOiJwcm9kLWFwLXNvdXRoLTAifX0=
+            password: glc_eyJvIjoiNjUyOTkyIiwibiI6InRvb2xzIiwiayI6IkZZMWk5NHNZcTAxbE9wMkwybTZJTTc0QiIsIm0iOnsiciI6InByb2QtYXAtc291dGgtMCJ9fQ==
           external_labels:
             cluster: staging
         positions:

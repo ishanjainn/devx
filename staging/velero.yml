@@ -42,3 +42,14 @@ spec:
         factor: 2
     syncOptions:
       - CreateNamespace=true
+---
+apiVersion: velero.io/v1
+kind: VolumeSnapshotLocation
+metadata:
+  name: aws-default
+  namespace: velero
+spec:
+  provider: aws
+  config:
+    region: us-west-2
+    profile: "default"
