@@ -29,6 +29,8 @@ spec:
             enabled: false
         falcoctl:
           artifact:
+            install:
+              enabled: false
             follow:
               enabled: false
   sources: []
