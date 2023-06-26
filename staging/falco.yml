@@ -24,9 +24,7 @@ spec:
         json_output: true
         driver:
           loader:
-            initContainers:
-              image:
-                tag: master
+            enabled: false
   sources: []
   project: default
   syncPolicy:
