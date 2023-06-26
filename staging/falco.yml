@@ -22,6 +22,8 @@ spec:
         metrics:
           enabled: true
         json_output: true
+        securityContext:
+          privileged: true
         driver:
           loader:
             enabled: false
