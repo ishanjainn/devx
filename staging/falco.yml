@@ -25,6 +25,10 @@ spec:
         driver:
           loader:
             enabled: false
+        falcoctl:
+          artifact:
+            follow:
+              enabled: false
   sources: []
   project: default
   syncPolicy:
