@@ -19,8 +19,8 @@ spec:
       values: |
         # grpc_output:
         #   enabled: true
-        metrics:
-          enabled: true
+        # metrics:
+        #   enabled: true
         json_output: true
   sources: []
   project: default
