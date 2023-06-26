@@ -51,5 +51,18 @@ metadata:
 spec:
   provider: aws
   config:
-    region: us-west-2
+    region: us-east-1
+    profile: "default"
+---
+apiVersion: velero.io/v1
+kind: BackupStorageLocation
+metadata:
+  name: default
+  namespace: velero
+spec:
+  provider: aws
+  objectStorage:
+    bucket: velerointegration
+  config:
+    region: us-east-1
     profile: "default"
