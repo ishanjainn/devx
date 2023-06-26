@@ -58,7 +58,7 @@ apiVersion: velero.io/v1
 kind: BackupStorageLocation
 metadata:
   name: default
-  namespace: velero
+  namespace: default
 spec:
   provider: aws
   objectStorage:
