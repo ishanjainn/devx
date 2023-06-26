@@ -13,7 +13,7 @@ spec:
   source:
     path: ''
     repoURL: 'https://falcosecurity.github.io/charts'
-    targetRevision: 3.2.1
+    targetRevision: 3.2.0
     chart: falco
     helm: 
       values: |
@@ -22,14 +22,14 @@ spec:
         metrics:
           enabled: true
         json_output: true
-        driver:
-          enabled: false
-        falcoctl:
-          artifact:
-            install:
-              enabled: false
-            follow:
-              enabled: false
+        # driver:
+        #   enabled: false
+        # falcoctl:
+        #   artifact:
+        #     install:
+        #       enabled: false
+        #     follow:
+        #       enabled: false
   sources: []
   project: default
   syncPolicy:
