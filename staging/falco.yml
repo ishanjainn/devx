@@ -24,6 +24,10 @@ spec:
         json_output: true
         driver:
           enabled: false
+        falcoctl:
+          artifact:
+            install:
+              enabled: false
   sources: []
   project: default
   syncPolicy:
