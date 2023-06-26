@@ -52,7 +52,6 @@ spec:
   provider: aws
   config:
     region: us-east-1
-    profile: "default"
 ---
 apiVersion: velero.io/v1
 kind: BackupStorageLocation
@@ -65,4 +64,3 @@ spec:
     bucket: velerointegration
   config:
     region: us-east-1
-    profile: "default"
