@@ -3,8 +3,6 @@ kind: Application
 metadata:
   name: velero
   namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     name: ''
@@ -34,7 +32,7 @@ spec:
               region: us-east-1
           volumeSnapshotLocation:
             name: aws
-            provider: velero.io/aws
+            provider: aws
             config:
               region: us-east-1
           schedules: 
