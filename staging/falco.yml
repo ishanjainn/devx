@@ -1,0 +1,66 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: falco
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    name: ''
+    namespace: default
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: ''
+    repoURL: 'https://falcosecurity.github.io/charts'
+    targetRevision: 3.2.1
+    chart: falco
+    helm: 
+      values: |
+        grpc_output:
+          enabled: true
+        metrics:
+          enabled: true
+        json_output: true
+  sources: []
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      limit: 2
+      backoff:
+        duration: 5s
+        maxDuration: 3m0s
+        factor: 2
+# ---
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: falco-exporter
+#   namespace: argocd
+#   finalizers:
+#     - resources-finalizer.argocd.argoproj.io
+# spec:
+#   destination:
+#     name: ''
+#     namespace: default
+#     server: 'https://kubernetes.default.svc'
+#   source:
+#     path: ''
+#     repoURL: 'https://falcosecurity.github.io/charts'
+#     targetRevision: 3.2.1
+#     chart: falco-exporter
+#   sources: []
+#   project: default
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+#     retry:
+#       limit: 2
+#       backoff:
+#         duration: 5s
+#         maxDuration: 3m0s
+#         factor: 2
