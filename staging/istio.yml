@@ -69,3 +69,147 @@ spec:
         factor: 2
     syncOptions:
       - CreateNamespace=true
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: staging
+  labels:
+    monitoring: prometheus
+    istio-injection: enabled
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: first-app-v1
+  namespace: staging
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: first-app
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: first-app
+        version: v1
+        istio: monitor
+    spec:
+      containers:
+        - image: aputra/myapp-lesson155:latest
+          imagePullPolicy: Always
+          name: first-app
+          env:
+            - name: SERVICE
+              value: first-app
+            - name: VERSION
+              value: v1
+          ports:
+            - name: http
+              containerPort: 8080
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: first-app-v2
+  namespace: staging
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: first-app
+      version: v2
+  template:
+    metadata:
+      labels:
+        app: first-app
+        version: v2
+        istio: monitor
+    spec:
+      containers:
+        - image: aputra/myapp-lesson155:latest
+          imagePullPolicy: Always
+          name: first-app
+          env:
+            - name: SERVICE
+              value: first-app
+            - name: VERSION
+              value: v2
+          ports:
+            - name: http
+              containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: first-app
+  namespace: staging
+spec:
+  ports:
+    - name: http
+      port: 8080
+  selector:
+    app: first-app
+
+---
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: first-app
+  namespace: staging
+spec:
+  host: first-app
+  subsets:
+    - name: v1
+      labels:
+        app: first-app
+        version: v1
+    - name: v2
+      labels:
+        app: first-app
+        version: v2
+
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: first-app
+  namespace: staging
+spec:
+  hosts:
+    - first-app
+  http:
+    - route:
+        - destination:
+            host: first-app
+            subset: v1
+          weight: 0
+        - destination:
+            host: first-app
+            subset: v2
+          weight: 100
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: backend
+  labels:
+    istio-injection: enabled
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: client
+  namespace: backend
+spec:
+  containers:
+    - name: client
+      image: curlimages/curl:latest
+      command: ["/bin/sh", "-c", "--"]
+      args: ["while true; do sleep 30; done;"]
