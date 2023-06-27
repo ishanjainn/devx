@@ -188,11 +188,11 @@ spec:
         - destination:
             host: first-app
             subset: v1
-          weight: 90
+          weight: 0
         - destination:
             host: first-app
             subset: v2
-          weight: 10
+          weight: 100
 
 ---
 apiVersion: v1
