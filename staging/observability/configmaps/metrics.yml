@@ -218,7 +218,7 @@ data:
               names:
               - istio-system
               - istio-ingress
-        - job_name: 'envoy-stats'
+        - job_name: envoy-stats
           metrics_path: /stats/prometheus
           kubernetes_sd_configs:
           - role: pod
