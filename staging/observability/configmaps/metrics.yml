@@ -211,8 +211,16 @@ data:
         - job_name: integrations/grafana-mimir/metrics
           kubernetes_sd_configs:
             - role: pod
+        - job_name: 'integrations/istio'
+          kubernetes_sd_configs:
+          - role: endpoints
+            namespaces:
+              names:
+              - istio-system
           relabel_configs:
-            # The mimir-distributed Helm chart names all ports which expose a /metrics endpoint with the 'metrics' suffix, so we keep only those targets.
+            - source_labels: [__meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
+              action: keep
+              regex: istiod;http-monitoring
             - regex: .*metrics
               action: keep
               source_labels:
