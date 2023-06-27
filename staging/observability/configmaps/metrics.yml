@@ -208,27 +208,29 @@ data:
         - job_name: integrations/harbor/exporter
           static_configs:
             - targets: ['harbor-exporter.default.svc.cluster.local:8001']
-        - job_name: integrations/grafana-mimir/metrics
-          kubernetes_sd_configs:
-            - role: pod
         - job_name: integrations/istio
           kubernetes_sd_configs:
           - role: endpoints
             namespaces:
               names:
               - istio-system
-              - istio-ingress
-        - job_name: envoy-stats
+          relabel_configs:
+          - source_labels: [__meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
+            action: keep
+            regex: istiod;http-monitoring
+        - job_name: integrations/istio/envoy
           metrics_path: /stats/prometheus
           kubernetes_sd_configs:
           - role: pod
           relabel_configs:
-            - source_labels: [__meta_kubernetes_pod_container_port_name]
-              action: keep
-              regex: '.*-envoy-prom'
-            - source_labels: [__meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
-              action: keep
-              regex: istiod;http-monitoring
+          - source_labels: [__meta_kubernetes_pod_container_port_name]
+            action: keep
+            regex: '.*-envoy-prom'
+        - job_name: integrations/grafana-mimir/metrics
+          kubernetes_sd_configs:
+            - role: pod
+          relabel_configs:
+            # The mimir-distributed Helm chart names all ports which expose a /metrics endpoint with the 'metrics' suffix, so we keep only those targets.
             - regex: .*metrics
               action: keep
               source_labels:
