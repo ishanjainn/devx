@@ -21,3 +21,15 @@ kubectl apply -f argocd/staging_app.yml
 ```
 helm install minio oci://registry-1.docker.io/bitnamicharts/minio -f minio.yml
 ```
+
+```
+export ROOT_USER=$(kubectl get secret --namespace default minio -o jsonpath="{.data.root-user}" | base64 -d)
+```
+
+```
+export ROOT_PASSWORD=$(kubectl get secret --namespace default minio -o jsonpath="{.data.root-password}" | base64 -d)
+```
+```
+echo "MinIO&reg; web URL: http://127.0.0.1:9001/minio"
+kubectl port-forward --namespace default svc/minio 9001:9001
+```
