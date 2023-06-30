@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: trivy
+  namespace: argocd
+spec:
+  destination:
+    name: ''
+    namespace: trivy
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: ''
+    repoURL: 'https://aquasecurity.github.io/helm-charts/'
+    targetRevision: 0.14.1
+    chart: trivy-operator
+    helm:
+      parameters:
+        - name: trivy.ignoreUnfixed=true
+          value: true
+      values: |
+        operator:
+          metricsVulnIdEnabled: true
+          metricsExposedSecretInfo: true
+          metricsConfigAuditInfo: true
+          metricsRbacAssessmentInfo: true
+          metricsInfraAssessmentInfo: false
+  sources: []
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      limit: 2
+      backoff:
+        duration: 5s
+        maxDuration: 3m0s
+        factor: 2
+    syncOptions:
+      - CreateNamespace=true
