@@ -210,7 +210,7 @@ data:
             - targets: ['harbor-exporter.default.svc.cluster.local:8001']
         - job_name: integrations/trivy-operator
           static_configs:
-            - targets: ['trivy-trivy-operator.trivy.svc.cluster.local:80']
+            - targets: ['trivy-trivy-operator.trivy.svc.cluster.local:9115']
         - job_name: integrations/minio
           metrics_path: /minio/v2/metrics/cluster
           static_configs:
