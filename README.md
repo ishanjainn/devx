@@ -15,3 +15,9 @@ kubectl port-forward service/argocd-server -n argocd 8080:443
 ```
 kubectl apply -f argocd/staging_app.yml
 ```
+
+## MinIO
+
+```
+helm install minio oci://registry-1.docker.io/bitnamicharts/minio -f minio.yml
+```
