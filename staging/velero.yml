@@ -42,25 +42,25 @@ spec:
         factor: 2
     syncOptions:
       - CreateNamespace=true
----
-apiVersion: velero.io/v1
-kind: VolumeSnapshotLocation
-metadata:
-  name: aws-default
-  namespace: default
-spec:
-  provider: aws
-  config:
-    region: us-east-1
----
-apiVersion: velero.io/v1
-kind: BackupStorageLocation
-metadata:
-  name: default
-  namespace: default
-spec:
-  provider: aws
-  objectStorage:
-    bucket: velerointegration
-  config:
-    region: us-east-1
+# ---
+# apiVersion: velero.io/v1
+# kind: VolumeSnapshotLocation
+# metadata:
+#   name: aws-default
+#   namespace: default
+# spec:
+#   provider: aws
+#   config:
+#     region: us-east-1
+# ---
+# apiVersion: velero.io/v1
+# kind: BackupStorageLocation
+# metadata:
+#   name: default
+#   namespace: default
+# spec:
+#   provider: aws
+#   objectStorage:
+#     bucket: velerointegration
+#   config:
+#     region: us-east-1
