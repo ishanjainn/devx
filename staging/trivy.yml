@@ -14,10 +14,9 @@ spec:
     targetRevision: 0.14.1
     chart: trivy-operator
     helm:
-      parameters:
-        - name: trivy.ignoreUnfixed=true
-          value: true
       values: |
+        trivy:
+          ignoreUnfixed: true
         operator:
           metricsVulnIdEnabled: true
           metricsExposedSecretInfo: true
