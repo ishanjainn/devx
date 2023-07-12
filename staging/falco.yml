@@ -13,7 +13,7 @@ spec:
   source:
     path: ''
     repoURL: 'https://falcosecurity.github.io/charts'
-    targetRevision: 3.2.1
+    targetRevision: 3.3.0
     chart: falco
     helm: 
       values: |
